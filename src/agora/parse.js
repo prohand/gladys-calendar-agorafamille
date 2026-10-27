@@ -145,6 +145,25 @@ const FIELDS = {
   ],
   paid: ['payee', 'estPayee', 'paid', 'isPaid', 'reglee', 'soldee'],
   invoiceStatus: ['etat', 'statut', 'status', 'state'],
+  // `isLitigation: 1`: the invoice went to litigation ("mise en impayé"),
+  // collected by the Trésor public; the portal's own pay button then sends
+  // the family to another provider (pay_invoices_component.js).
+  litigation: ['isLitigation', 'is_litigation', 'contentieux', 'enContentieux'],
+  // The API (October 2026): `{ DATA: { count, data: [{ ID_NOTIFICATIONS,
+  // SUBJECT, SENDER, SEND_DATE: "16/10/2026 09:58", IS_READ, BODY }] } }`.
+  messageId: ['ID_NOTIFICATIONS', 'idMessage', 'id_message', 'idNotification', 'id'],
+  subject: ['objet', 'sujet', 'subject', 'titre', 'title', 'libelle'],
+  sender: ['expediteur', 'auteur', 'emetteur', 'from', 'sender', 'service'],
+  messageDate: [
+    'SEND_DATE',
+    'dateEnvoi',
+    'date_envoi',
+    'dateCreation',
+    'date',
+    'sentAt',
+    'createdAt',
+  ],
+  read: ['IS_READ', 'lu', 'estLu', 'read', 'isRead', 'luLe'],
 };
 
 /**
@@ -319,7 +338,12 @@ export function parseReservationStatus(value) {
 /**
  * The invoices of the family.
  *
- * @returns {Array<{id: string, label: string, amount: number, remaining: number, issuedOn: ?string, dueOn: ?string, paid: boolean}>}
+ * `treasury` marks an invoice sent to the Trésor public: the municipality no
+ * longer follows its payment, the portal keeps showing it unpaid even once
+ * paid to the Trésor. It is told by the portal (`isLitigation`, or a state
+ * naming the Trésor), or by the family (see markTreasury).
+ *
+ * @returns {Array<{id: string, label: string, amount: number, remaining: number, issuedOn: ?string, dueOn: ?string, paid: boolean, treasury: boolean}>}
  */
 export function parseInvoices(payload) {
   const invoices = [];
@@ -347,9 +371,46 @@ export function parseInvoices(payload) {
       dueOn: parseDay(first(entry, FIELDS.dueOn)),
       // An amount left to pay says more than a label ("Partiellement payée").
       paid: remainingValue === null ? paid || remaining <= 0 : remainingValue <= 0,
+      treasury: isTreasury(entry),
     });
   }
   return invoices.sort((a, b) => (b.issuedOn ?? '').localeCompare(a.issuedOn ?? ''));
+}
+
+function isTreasury(entry) {
+  const litigation = first(entry, FIELDS.litigation);
+  if (litigation !== undefined && toBoolean(litigation)) {
+    return true;
+  }
+  const status = normalize(first(entry, FIELDS.invoiceStatus) ?? '');
+  return /tresor|recouvr|contentieux|titre (de recette|emis)|dgfip/.test(status);
+}
+
+/**
+ * The invoice numbers a family typed: `164513`, `#164513, 170002`, one per
+ * line… Anything that is not a number is ignored.
+ *
+ * @returns {Array<string>}
+ */
+export function parseInvoiceNumbers(value) {
+  return [...new Set(String(value ?? '').match(/[0-9A-Za-z][0-9A-Za-z_-]*/g) ?? [])];
+}
+
+/**
+ * Mark as sent to the Trésor public the invoices the family listed: the
+ * municipality told them the portal will never show them paid.
+ *
+ * @param {Array<object>} invoices see parseInvoices
+ * @param {Array<string>} numbers see parseInvoiceNumbers
+ */
+export function markTreasury(invoices, numbers = []) {
+  if (numbers.length === 0) {
+    return invoices;
+  }
+  const listed = new Set(numbers);
+  return invoices.map((invoice) =>
+    listed.has(invoice.id) ? { ...invoice, treasury: true } : invoice,
+  );
 }
 
 function parsePaid(entry) {

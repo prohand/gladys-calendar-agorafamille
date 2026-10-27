@@ -31,11 +31,12 @@ themselves**, with their own account.
 In Gladys: **Integrations → Agora Famille Calendrier → Configuration**, block
 **"My calendars"**:
 
-| Field              | What to enter                                                                                                                                                                    |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Portal address** | The address of your portal as your browser shows it, e.g. `https://portalssl.agoraplus.fr/mycity/pck_home.home_view#/`. The name of the municipality alone (`mycity`) works too. |
-| **Login (e-mail)** | The e-mail of your family account.                                                                                                                                               |
-| **Password**       | The portal password. Gladys stores it as a secret, and it never appears in the logs.                                                                                             |
+| Field                                             | What to enter                                                                                                                                                                    |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Portal address**                                | The address of your portal as your browser shows it, e.g. `https://portalssl.agoraplus.fr/mycity/pck_home.home_view#/`. The name of the municipality alone (`mycity`) works too. |
+| **Login (e-mail)**                                | The e-mail of your family account.                                                                                                                                               |
+| **Password**                                      | The portal password. Gladys stores it as a secret, and it never appears in the logs.                                                                                             |
+| **Invoices sent to the Trésor public** (optional) | Numbers of the invoices the municipality sent to the Trésor public, separated by commas (e.g. `164513`). See below.                                                              |
 
 Then click **Enable**. Your calendars show up in the Gladys **Calendar** view
 after the first read of the portal.
@@ -88,6 +89,18 @@ A day cancelled on the portal leaves the calendar at the next read.
   paid, the total amount and what is left to pay.
 - A paid invoice leaves the calendar at the next read.
 - This calendar does not exist when the municipality has no invoices module.
+
+### Invoices sent to the Trésor public
+
+When an invoice is not paid in time, the municipality sends it to the
+**Trésor public** (the French public treasury, "mise en impayé"). The portal
+then no longer follows its payment and shows it unpaid forever, even once
+paid to the Trésor.
+
+These invoices **stay out** of the invoices calendar. They are recognised on
+their own when the portal marks them (litigation, or a state naming the
+Trésor), otherwise by their number, in the **Invoices sent to the Trésor
+public** field of your account.
 
 ## Scene examples
 

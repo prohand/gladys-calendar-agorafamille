@@ -34,11 +34,12 @@ Gladys active l'intégration pour lui-même**, avec son propre compte.
 Dans Gladys : **Intégrations → Agora Famille Calendrier → Configuration**,
 bloc **« Mes calendriers »** :
 
-| Champ                    | Ce qu'il faut y mettre                                                                                                                                                                      |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Adresse du portail**   | L'adresse de votre portail telle que l'affiche votre navigateur, par ex. `https://portalssl.agoraplus.fr/maville/pck_home.home_view#/`. Le seul nom de la commune (`maville`) suffit aussi. |
-| **Identifiant (e-mail)** | L'e-mail de votre compte famille.                                                                                                                                                           |
-| **Mot de passe**         | Le mot de passe du portail. Il est stocké comme un secret par Gladys et n'apparaît jamais dans les logs.                                                                                    |
+| Champ                                                 | Ce qu'il faut y mettre                                                                                                                                                                      |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Adresse du portail**                                | L'adresse de votre portail telle que l'affiche votre navigateur, par ex. `https://portalssl.agoraplus.fr/maville/pck_home.home_view#/`. Le seul nom de la commune (`maville`) suffit aussi. |
+| **Identifiant (e-mail)**                              | L'e-mail de votre compte famille.                                                                                                                                                           |
+| **Mot de passe**                                      | Le mot de passe du portail. Il est stocké comme un secret par Gladys et n'apparaît jamais dans les logs.                                                                                    |
+| **Factures transmises au Trésor public** (facultatif) | Numéros des factures que la commune a transmises au Trésor public, séparés par des virgules (ex. `164513`). Voir plus bas.                                                                  |
 
 Puis cliquez sur **Activer**. Vos calendriers apparaissent dans la vue
 **Calendrier** de Gladys après la première lecture du portail.
@@ -92,6 +93,17 @@ Un jour annulé sur le portail disparaît du calendrier à la lecture suivante.
   payée, le montant total et le reste à payer.
 - Une facture payée disparaît du calendrier à la lecture suivante.
 - Ce calendrier n'existe pas si la commune n'a pas le module de factures.
+
+### Factures transmises au Trésor public
+
+Quand une facture n'est pas payée à temps, la commune la transmet au **Trésor
+public** (« mise en impayé »). Le portail ne suit alors plus son paiement et
+la montre impayée pour toujours, même une fois payée au Trésor.
+
+Ces factures **ne vont pas** dans le calendrier des factures. Elles sont
+reconnues toutes seules quand le portail les marque (contentieux, ou un état
+qui parle du Trésor), sinon par leur numéro, dans le champ **Factures
+transmises au Trésor public** de votre compte.
 
 ## Exemples de scènes
 

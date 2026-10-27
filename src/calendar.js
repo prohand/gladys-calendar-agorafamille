@@ -134,8 +134,11 @@ export function buildCalendars(
       calendarId,
       invoices
         // Every event must fall in the window: an invoice overdue for longer
-        // than `days_back` is still on the portal, not in the calendar.
+        // than `days_back` is still on the portal, not in the calendar. One
+        // sent to the Trésor public is not followed by the portal any more:
+        // it would stay "to pay" forever, paid to the Trésor or not.
         .filter((invoice) => !invoice.paid && invoice.remaining > 0 && invoice.dueOn)
+        .filter((invoice) => !invoice.treasury)
         .filter((invoice) => invoice.dueOn >= window.firstDay && invoice.dueOn <= window.lastDay)
         .map((invoice) => ({
           external_id: ids.invoice(invoice),

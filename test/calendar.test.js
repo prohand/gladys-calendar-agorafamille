@@ -172,3 +172,22 @@ test('long lists go in requests of 500 at most, over disjoint windows covering t
     { events: events.slice(0, 10), window: { from: window.from, to: window.to } },
   ]);
 });
+
+test('an invoice sent to the Trésor public stays out of the invoices calendar', () => {
+  const invoices = [
+    { id: 'F10', label: 'Octobre', amount: 40, remaining: 40, dueOn: '2026-11-20' },
+    {
+      id: 'F11',
+      label: 'Décembre',
+      amount: 64.8,
+      remaining: 64.8,
+      dueOn: '2026-11-10',
+      treasury: true,
+    },
+  ];
+  const { events } = build({ invoices });
+  assert.deepEqual(
+    events.get(ids.invoicesCalendar()).map((event) => event.external_id),
+    [`ext:test:alice:${account.accountId}:invoice:F10`],
+  );
+});

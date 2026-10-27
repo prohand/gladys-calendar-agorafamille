@@ -24,6 +24,7 @@ import { createHash } from 'node:crypto';
 import { createLogger } from './logging.js';
 import { AgoraClient, AgoraError, ERROR_CODES } from './agora/client.js';
 import { dayOf } from './agora/dates.js';
+import { markTreasury } from './agora/parse.js';
 import { batchesOf, buildCalendars, idsFor, windowOf } from './calendar.js';
 import { normalizeAccount } from './config.js';
 import { describeError } from './messages.js';
@@ -80,7 +81,7 @@ export function createSync({ gladys, getConfig, fetch, now = () => new Date() })
       }
       const client = clientOf(state, account);
       const window = windowOf(dayOf(now()), config);
-      const read = await readPortal(client, window, config);
+      const read = await readPortal(client, window, config, account);
       const ids = idsFor(gladys, user.selector, account.accountId);
       const { calendars, events } = buildCalendars(read, {
         ids,
@@ -280,7 +281,7 @@ export function describeSyncError(error) {
   );
 }
 
-async function readPortal(client, window, config) {
+async function readPortal(client, window, config, account) {
   let children = await childrenOrNone(client);
   const planning = await client.getPlanning(window.firstDay, window.lastDay, children);
   if (children.length === 0) {
@@ -289,7 +290,11 @@ async function readPortal(client, window, config) {
   // Invoices are a module a municipality may not have bought: a portal
   // without them answers 404, which is "no invoices calendar", not a failure.
   const invoices = config.show_invoices ? await invoicesOrNull(client) : null;
-  return { children, planning, invoices };
+  return {
+    children,
+    planning,
+    invoices: invoices && markTreasury(invoices, account.treasuryInvoices),
+  };
 }
 
 // The planning of the API names each child by its id: without the request

@@ -104,6 +104,29 @@
         "es": "Contraseña"
       },
       "required": true
+    },
+    {
+      "key": "treasury_invoices",
+      "type": "string",
+      "label": {
+        "en": "Invoices sent to the Trésor public",
+        "fr": "Factures transmises au Trésor public",
+        "de": "An den Trésor public übergebene Rechnungen",
+        "es": "Facturas transmitidas al Trésor public"
+      },
+      "description": {
+        "en": "Numbers of the invoices the municipality sent to the Trésor public (\"mise en impayé\"), separated by commas. The portal keeps showing them unpaid: they stay out of the invoices calendar. Those the portal marks itself are found without this.",
+        "fr": "Numéros des factures que la commune a transmises au Trésor public (« mise en impayé »), séparés par des virgules. Le portail les montre toujours impayées : elles restent hors du calendrier des factures. Celles que le portail marque lui-même sont trouvées sans cela.",
+        "de": "Nummern der Rechnungen, die die Gemeinde an den Trésor public übergeben hat („mise en impayé“), durch Kommas getrennt. Das Portal zeigt sie weiter als unbezahlt: Sie bleiben aus dem Rechnungskalender heraus. Vom Portal selbst markierte werden auch ohne dies erkannt.",
+        "es": "Números de las facturas que el municipio transmitió al Trésor public («mise en impayé»), separados por comas. El portal las sigue mostrando impagadas: se quedan fuera del calendario de facturas. Las que el propio portal marca se detectan sin esto."
+      },
+      "placeholder": {
+        "en": "e.g. 164513",
+        "fr": "ex. 164513",
+        "de": "z. B. 164513",
+        "es": "p. ej. 164513"
+      },
+      "required": false
     }
   ],
   "config_schema": [

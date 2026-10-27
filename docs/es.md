@@ -35,11 +35,12 @@ integración para sí mismo**, con su propia cuenta.
 En Gladys: **Integraciones → Agora Famille Calendrier → Configuración**,
 bloque **«Mis calendarios»**:
 
-| Campo                    | Qué poner                                                                                                                                                                                  |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Dirección del portal** | La dirección de su portal tal como la muestra su navegador, p. ej. `https://portalssl.agoraplus.fr/miciudad/pck_home.home_view#/`. Basta también con el nombre del municipio (`miciudad`). |
-| **Usuario (correo)**     | El correo de su cuenta familiar.                                                                                                                                                           |
-| **Contraseña**           | La contraseña del portal. Gladys la guarda como secreto y nunca aparece en los registros.                                                                                                  |
+| Campo                                                 | Qué poner                                                                                                                                                                                  |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Dirección del portal**                              | La dirección de su portal tal como la muestra su navegador, p. ej. `https://portalssl.agoraplus.fr/miciudad/pck_home.home_view#/`. Basta también con el nombre del municipio (`miciudad`). |
+| **Usuario (correo)**                                  | El correo de su cuenta familiar.                                                                                                                                                           |
+| **Contraseña**                                        | La contraseña del portal. Gladys la guarda como secreto y nunca aparece en los registros.                                                                                                  |
+| **Facturas transmitidas al Trésor public** (opcional) | Números de las facturas que el municipio transmitió al Trésor public, separados por comas (p. ej. `164513`). Vea más abajo.                                                                |
 
 Pulse después **Activar**. Sus calendarios aparecen en la vista
 **Calendario** de Gladys tras la primera lectura del portal.
@@ -93,6 +94,18 @@ siguiente.
   parte, el importe total y lo que queda por pagar.
 - Una factura pagada desaparece del calendario en la lectura siguiente.
 - Este calendario no existe si el municipio no tiene el módulo de facturas.
+
+### Facturas transmitidas al Trésor public
+
+Cuando una factura no se paga a tiempo, el municipio la transmite al **Trésor
+public** (el tesoro público francés, «mise en impayé»). El portal deja
+entonces de seguir su pago y la muestra impagada para siempre, incluso una
+vez pagada al Trésor.
+
+Estas facturas **se quedan fuera** del calendario de facturas. Se reconocen
+solas cuando el portal las marca (contencioso, o un estado que menciona el
+Trésor), si no por su número, en el campo **Facturas transmitidas al Trésor
+public** de su cuenta.
 
 ## Ejemplos de escenas
 

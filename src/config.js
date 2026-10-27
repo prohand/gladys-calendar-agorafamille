@@ -16,6 +16,7 @@
 // -----------------------------------------------------------------------------
 
 import { createHash } from 'node:crypto';
+import { parseInvoiceNumbers } from './agora/parse.js';
 
 // Defaults: they MUST stay consistent with the `default` values declared in the
 // `config_schema` of the manifest (test/manifest.test.js checks it).
@@ -29,7 +30,7 @@ export const DEFAULT_CONFIG = {
 };
 
 /** The keys of the per-user account form (`account_schema` of the manifest). */
-export const ACCOUNT_KEYS = ['portal_url', 'username', 'password'];
+export const ACCOUNT_KEYS = ['portal_url', 'username', 'password', 'treasury_invoices'];
 
 /** The portal never moves faster than this: a family checks it a few times a day. */
 export const MIN_REFRESH_MINUTES = 15;
@@ -76,6 +77,9 @@ export function normalizeAccount(raw = {}) {
     username: String(raw.username ?? '').trim(),
     // Not trimmed: a password may end with a space, and it is the user's.
     password: String(raw.password ?? ''),
+    // The invoices the municipality sent to the Trésor public: the portal
+    // shows them unpaid forever, they stay out of the invoices calendar.
+    treasuryInvoices: parseInvoiceNumbers(raw.treasury_invoices),
   };
   const portal = parsePortalUrl(raw.portal_url);
   account.portal_url = portal?.url ?? '';

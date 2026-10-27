@@ -10,6 +10,12 @@ Release.
 
 ## [Unreleased]
 
+### Added
+
+- Invoices sent to the Trésor public ("mise en impayé") stay out of the invoices calendar: the
+  portal shows them unpaid forever. They are found from the portal (`isLitigation`, a state
+  naming the Trésor) or from their numbers, in a new optional field of each user's account.
+
 ### Changed
 
 - A new cover for the store.

@@ -236,3 +236,22 @@ test('with nobody enabled, the Configuration screen says how to start', async (t
   assert.equal(gladys.fake.connectionStatus.connected, true);
   assert.match(gladys.fake.connectionStatus.message.fr, /Mes calendriers/);
 });
+
+test('the invoices a user lists as sent to the Trésor public leave their calendar', async (t) => {
+  const portal = family();
+  portal.invoices.push({
+    numFacture: '164513',
+    libelle: 'Novembre 2026',
+    montant: '64,80',
+    dateEcheance: '10/11/2026',
+  });
+  const { gladys, app } = await start({
+    portal,
+    accounts: [{ user: ALICE, config: { ...CONFIG, treasury_invoices: '#164513' } }],
+  });
+  t.after(() => app.stop());
+  assert.deepEqual(
+    eventsOf(gladys, id('alice', 'invoices')).map((event) => event.external_id),
+    [id('alice', 'invoice:F10')],
+  );
+});

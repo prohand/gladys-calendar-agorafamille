@@ -33,11 +33,12 @@ Integration für sich selbst**, mit seinem eigenen Konto.
 In Gladys: **Integrationen → Agora Famille Calendrier → Konfiguration**,
 Bereich **„Meine Kalender“**:
 
-| Feld                      | Was einzutragen ist                                                                                                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Portaladresse**         | Die Adresse deines Portals, wie dein Browser sie anzeigt, z. B. `https://portalssl.agoraplus.fr/meinestadt/pck_home.home_view#/`. Nur der Name der Gemeinde (`meinestadt`) genügt auch. |
-| **Benutzername (E-Mail)** | Die E-Mail deines Familienkontos.                                                                                                                                                       |
-| **Passwort**              | Das Passwort des Portals. Gladys speichert es als Geheimnis, es erscheint nie in den Protokollen.                                                                                       |
+| Feld                                                      | Was einzutragen ist                                                                                                                                                                     |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Portaladresse**                                         | Die Adresse deines Portals, wie dein Browser sie anzeigt, z. B. `https://portalssl.agoraplus.fr/meinestadt/pck_home.home_view#/`. Nur der Name der Gemeinde (`meinestadt`) genügt auch. |
+| **Benutzername (E-Mail)**                                 | Die E-Mail deines Familienkontos.                                                                                                                                                       |
+| **Passwort**                                              | Das Passwort des Portals. Gladys speichert es als Geheimnis, es erscheint nie in den Protokollen.                                                                                       |
+| **An den Trésor public übergebene Rechnungen** (optional) | Nummern der Rechnungen, die die Gemeinde an den Trésor public übergeben hat, durch Kommas getrennt (z. B. `164513`). Siehe unten.                                                       |
 
 Klicke dann auf **Aktivieren**. Deine Kalender erscheinen nach dem ersten
 Lesen des Portals in der **Kalender**-Ansicht von Gladys.
@@ -92,6 +93,18 @@ Kalender.
   bezahlt ist, den Gesamtbetrag und den offenen Betrag.
 - Eine bezahlte Rechnung verschwindet beim nächsten Lesen aus dem Kalender.
 - Diesen Kalender gibt es nicht, wenn die Gemeinde kein Rechnungsmodul hat.
+
+### An den Trésor public übergebene Rechnungen
+
+Wird eine Rechnung nicht rechtzeitig bezahlt, übergibt die Gemeinde sie an den
+**Trésor public** (die französische Staatskasse, „mise en impayé“). Das Portal
+verfolgt die Zahlung dann nicht mehr und zeigt sie für immer als unbezahlt,
+auch nachdem sie beim Trésor bezahlt wurde.
+
+Diese Rechnungen **bleiben aus** dem Rechnungskalender heraus. Sie werden von
+selbst erkannt, wenn das Portal sie markiert (Mahnverfahren oder ein Status,
+der den Trésor nennt), sonst über ihre Nummer im Feld **An den Trésor public
+übergebene Rechnungen** deines Kontos.
 
 ## Szenen-Beispiele
 
