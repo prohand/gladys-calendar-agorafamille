@@ -10,6 +10,10 @@ Release.
 
 ## [Unreleased]
 
+### Changed
+
+- A new cover for the store.
+
 ## [1.0.1] - 2026-10-27
 
 ### Added
