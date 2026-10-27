@@ -1,0 +1,132 @@
+# Agora Famille Calendar
+
+This integration puts into the **Gladys calendar** what your French
+municipality's **Agora Famille family portal** (published by Agora Plus)
+knows about your children:
+
+- **one calendar per child**: the booked days (school canteen,
+  before/after-school care, holiday club…), at the hours the portal gives;
+- **an invoices calendar**: every invoice to pay, on its due date, with the
+  amount left to pay (never rounded).
+
+It only **reads** the portal: it never books nor cancels anything. Bookings
+and absences are made on the portal; the calendar follows at the next read.
+
+It complements the [Agora Famille](https://github.com/prohand/gladys-agorafamille)
+integration (devices, scene triggers, widget); both can run together.
+
+## Before you start
+
+- **Gladys 5.3 or later** is required.
+- You need an **active** account on your municipality's Agora Famille
+  portal: the e-mail address and password you sign in with.
+- The integration is a **cloud** one: it needs internet access to reach the
+  portal.
+
+## Enabling the integration (each user)
+
+A calendar is personal data: **each Gladys user enables the integration for
+themselves**, with their own account.
+
+In Gladys: **Integrations → Agora Famille Calendrier → Configuration**, block
+**"My calendars"**:
+
+| Field              | What to enter                                                                                                                                                                    |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Portal address** | The address of your portal as your browser shows it, e.g. `https://portalssl.agoraplus.fr/mycity/pck_home.home_view#/`. The name of the municipality alone (`mycity`) works too. |
+| **Login (e-mail)** | The e-mail of your family account.                                                                                                                                               |
+| **Password**       | The portal password. Gladys stores it as a secret, and it never appears in the logs.                                                                                             |
+
+Then click **Enable**. Your calendars show up in the Gladys **Calendar** view
+after the first read of the portal.
+
+Two parents can each enable the integration, with the same portal account or
+two different ones: each gets calendars of their own.
+
+### Private or shared
+
+A calendar created by the integration starts **private**: only you see it.
+For it to serve the **scenes** (the "a calendar event is coming" trigger) and
+the rest of the household, **share it** in the calendar settings. You can
+also **turn off the sync** of a calendar: the integration then leaves it
+alone.
+
+## Integration settings (administrator)
+
+| Field                         | What it does                                                                                       |
+| ----------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Refresh interval (min)**    | How often the portal is read (60 min by default, 15 min minimum).                                  |
+| **Days ahead**                | How many days ahead go into the calendars (30 by default, 90 at most).                             |
+| **Past days kept up to date** | How many past days are still updated (7 by default). Older days stay as they were in the calendar. |
+| **Whole-day events**          | Shows every booking over the whole day instead of the portal's hours (off by default).             |
+| **Invoices calendar**         | Adds the calendar of the invoices to pay (on by default). Turning it off removes that calendar.    |
+| **Detailed logs**             | Logs every request to the portal, for troubleshooting. Never the password.                         |
+
+The **Sync now** button reads the portal again for every user and says, for
+each one, how many children, events and calendars were updated, or what
+failed.
+
+## What goes into the calendars
+
+### One calendar per child ("Léa – Agora Famille")
+
+- One event per **booked** activity, named as on the portal ("Restauration
+  scolaire", "Garderie soir"…).
+- A day **requested** and not yet approved by the municipality is marked
+  "(pending)".
+- The hours are the portal's; without hours, the event takes the whole day.
+- The description gives the place and period the portal shows, and the state
+  ("Booked", "Request pending"). A link opens the portal.
+
+A day cancelled on the portal leaves the calendar at the next read.
+
+### The invoices calendar ("Agora Famille invoices")
+
+- A whole-day event on the **payment due date** of each unpaid invoice:
+  "Invoice to pay: €64.80".
+- The description gives the label of the invoice and, when it is partly
+  paid, the total amount and what is left to pay.
+- A paid invoice leaves the calendar at the next read.
+- This calendar does not exist when the municipality has no invoices module.
+
+## Scene examples
+
+Once a child's calendar is **shared**:
+
+- **A calendar event is coming**, calendar "Léa – Agora Famille", 1 hour
+  before → notification "Léa is going to the holiday club soon".
+- **A calendar event is coming**, calendar "Agora Famille invoices", 3 days
+  before → notification "An Agora Famille invoice is due soon".
+
+## Troubleshooting
+
+The state of each user is shown at the top of the Configuration screen.
+
+- **"Fill in the portal address… in "My calendars""**: the account of that
+  user is incomplete.
+- **"The portal refused the login or the password"**: check them by signing
+  in to the portal in a browser. An account still waiting for the town hall's
+  approval cannot sign in yet.
+- **"The portal does not answer"**: the portal may be under maintenance; the
+  integration tries again at every interval. Nothing is removed from the
+  calendars meanwhile.
+- **"The portal answered something unexpected"**: tick **Detailed logs**,
+  click **Sync now** and read the integration logs.
+
+### Important: no official API
+
+Agora Plus publishes no API for its family portal. The integration makes the
+same requests as the portal's own pages; they are gathered in a single file,
+[`src/agora/endpoints.js`](../src/agora/endpoints.js). A portal update may
+require adjusting them: open an
+[issue](https://github.com/prohand/gladys-calendar-agorafamille/issues)
+naming the failing step and the HTTP status returned (never your password).
+
+## Privacy
+
+- Each user's credentials are only used to sign in to their municipality's
+  portal, over HTTPS.
+- The password and the session are never written to the logs.
+- The planning and the invoices only go to the Gladys calendars of the user
+  who enabled the integration. Nothing is written to disk, nothing is sent
+  anywhere else.

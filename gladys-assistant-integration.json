@@ -1,0 +1,237 @@
+{
+  "manifest_version": 1,
+  "type": "calendar",
+  "name": "Agora Famille Calendrier",
+  "description": {
+    "en": "Agora Famille bookings (canteen, after-school, holiday club) and invoices in your calendar.",
+    "fr": "Réservations (cantine, périscolaire, loisirs) et factures Agora Famille dans votre calendrier.",
+    "de": "Buchungen (Kantine, Betreuung, Freizeit) und Rechnungen von Agora Famille in deinem Kalender.",
+    "es": "Reservas (comedor, extraescolares, ocio) y facturas de Agora Famille en su calendario."
+  },
+  "version": "1.0.0",
+  "docker_image": "ghcr.io/prohand/gladys-calendar-agorafamille:1.0.0",
+  "gladys_version": ">=5.3.0",
+  "cover_image": "https://raw.githubusercontent.com/prohand/gladys-calendar-agorafamille/main/cover.png",
+  "categories": ["services", "leisure"],
+  "keywords": [
+    "agora plus",
+    "agoraplus",
+    "portail famille",
+    "calendrier",
+    "cantine",
+    "périscolaire",
+    "accueil de loisirs",
+    "école",
+    "mairie"
+  ],
+  "countries": ["FR"],
+  "transports": ["cloud"],
+  "account_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Your family portal",
+        "fr": "Votre portail famille",
+        "de": "Dein Familienportal",
+        "es": "Su portal familiar"
+      },
+      "description": {
+        "en": "Each Gladys user enables the integration for themselves, with the account they sign in with on their municipality's Agora Famille portal. The calendars are theirs and start private. The integration only reads the portal.",
+        "fr": "Chaque utilisateur de Gladys active l'intégration pour lui-même, avec le compte qu'il utilise sur le portail Agora Famille de sa commune. Les calendriers sont les siens et sont privés au départ. L'intégration ne fait que lire le portail.",
+        "de": "Jeder Gladys-Benutzer aktiviert die Integration für sich selbst, mit dem Konto, mit dem er sich beim Agora-Famille-Portal seiner Gemeinde anmeldet. Die Kalender gehören ihm und sind zunächst privat. Die Integration liest das Portal nur.",
+        "es": "Cada usuario de Gladys activa la integración para sí mismo, con la cuenta con la que inicia sesión en el portal Agora Famille de su municipio. Los calendarios son suyos y empiezan siendo privados. La integración solo lee el portal."
+      },
+      "links": [
+        {
+          "url": "https://github.com/prohand/gladys-calendar-agorafamille/blob/main/docs/fr.md",
+          "label": {
+            "en": "Integration documentation",
+            "fr": "Documentation de l'intégration",
+            "de": "Dokumentation der Integration",
+            "es": "Documentación de la integración"
+          }
+        }
+      ]
+    },
+    {
+      "key": "portal_url",
+      "type": "string",
+      "label": {
+        "en": "Portal address",
+        "fr": "Adresse du portail",
+        "de": "Portaladresse",
+        "es": "Dirección del portal"
+      },
+      "description": {
+        "en": "The address of your portal, as your browser shows it, or just the name of your municipality in it.",
+        "fr": "L'adresse de votre portail, telle que votre navigateur l'affiche, ou seulement le nom de votre commune qui y figure.",
+        "de": "Die Adresse deines Portals, wie dein Browser sie anzeigt, oder nur der Name deiner Gemeinde darin.",
+        "es": "La dirección de su portal, tal como la muestra su navegador, o solo el nombre de su municipio que aparece en ella."
+      },
+      "placeholder": {
+        "en": "e.g. https://portalssl.agoraplus.fr/mycity",
+        "fr": "ex. https://portalssl.agoraplus.fr/maville",
+        "de": "z. B. https://portalssl.agoraplus.fr/meinestadt",
+        "es": "p. ej. https://portalssl.agoraplus.fr/miciudad"
+      },
+      "required": true
+    },
+    {
+      "key": "username",
+      "type": "string",
+      "label": {
+        "en": "Login (e-mail)",
+        "fr": "Identifiant (e-mail)",
+        "de": "Benutzername (E-Mail)",
+        "es": "Usuario (correo)"
+      },
+      "placeholder": {
+        "en": "e.g. parent@example.com",
+        "fr": "ex. parent@exemple.fr",
+        "de": "z. B. eltern@beispiel.de",
+        "es": "p. ej. padres@ejemplo.es"
+      },
+      "required": true
+    },
+    {
+      "key": "password",
+      "type": "secret",
+      "label": {
+        "en": "Password",
+        "fr": "Mot de passe",
+        "de": "Passwort",
+        "es": "Contraseña"
+      },
+      "required": true
+    }
+  ],
+  "config_schema": [
+    {
+      "key": "refresh_minutes",
+      "type": "number",
+      "label": {
+        "en": "Refresh interval (min)",
+        "fr": "Intervalle de lecture (min)",
+        "de": "Aktualisierungsintervall (min)",
+        "es": "Intervalo de lectura (min)"
+      },
+      "description": {
+        "en": "How often the portal is read, in minutes (15 minimum).",
+        "fr": "Fréquence de lecture du portail, en minutes (15 minimum).",
+        "de": "Wie oft das Portal gelesen wird, in Minuten (mindestens 15).",
+        "es": "Cada cuánto se lee el portal, en minutos (15 como mínimo)."
+      },
+      "required": false,
+      "default": 60,
+      "min": 15,
+      "max": 1440
+    },
+    {
+      "key": "days_ahead",
+      "type": "number",
+      "label": {
+        "en": "Days ahead",
+        "fr": "Jours à venir",
+        "de": "Tage im Voraus",
+        "es": "Días por adelantado"
+      },
+      "description": {
+        "en": "How many days ahead the bookings and the invoices go into the calendars.",
+        "fr": "Combien de jours à venir de réservations et de factures vont dans les calendriers.",
+        "de": "Wie viele Tage im Voraus Buchungen und Rechnungen in die Kalender kommen.",
+        "es": "Cuántos días por adelantado de reservas y facturas van a los calendarios."
+      },
+      "required": false,
+      "default": 30,
+      "min": 1,
+      "max": 90
+    },
+    {
+      "key": "days_back",
+      "type": "number",
+      "label": {
+        "en": "Past days kept up to date",
+        "fr": "Jours passés tenus à jour",
+        "de": "Aktualisierte vergangene Tage",
+        "es": "Días pasados actualizados"
+      },
+      "description": {
+        "en": "How many past days are still updated from the portal. Older days stay as they were.",
+        "fr": "Combien de jours passés sont encore mis à jour depuis le portail. Les jours plus anciens restent tels quels.",
+        "de": "Wie viele vergangene Tage noch aus dem Portal aktualisiert werden. Ältere Tage bleiben, wie sie sind.",
+        "es": "Cuántos días pasados se siguen actualizando desde el portal. Los días más antiguos se quedan como están."
+      },
+      "required": false,
+      "default": 7,
+      "min": 0,
+      "max": 31
+    },
+    {
+      "key": "full_day_events",
+      "type": "boolean",
+      "label": {
+        "en": "Whole-day events",
+        "fr": "Événements sur la journée",
+        "de": "Ganztägige Termine",
+        "es": "Eventos de día completo"
+      },
+      "description": {
+        "en": "Show every booking over the whole day instead of the hours the portal gives.",
+        "fr": "Affiche chaque réservation sur toute la journée au lieu des horaires donnés par le portail.",
+        "de": "Zeigt jede Buchung ganztägig statt zu den Uhrzeiten des Portals.",
+        "es": "Muestra cada reserva durante todo el día en lugar del horario que da el portal."
+      },
+      "required": false,
+      "default": false
+    },
+    {
+      "key": "show_invoices",
+      "type": "boolean",
+      "label": {
+        "en": "Invoices calendar",
+        "fr": "Calendrier des factures",
+        "de": "Rechnungskalender",
+        "es": "Calendario de facturas"
+      },
+      "description": {
+        "en": "Add a calendar of the invoices to pay, on their due date.",
+        "fr": "Ajoute un calendrier des factures à payer, à leur date limite.",
+        "de": "Fügt einen Kalender der offenen Rechnungen am Fälligkeitstag hinzu.",
+        "es": "Añade un calendario de las facturas por pagar, en su fecha límite."
+      },
+      "required": false,
+      "default": true
+    },
+    {
+      "key": "debug_logs",
+      "type": "boolean",
+      "label": {
+        "en": "Detailed logs",
+        "fr": "Logs détaillés",
+        "de": "Ausführliche Protokolle",
+        "es": "Registros detallados"
+      },
+      "description": {
+        "en": "Log every request to the portal (never the password). For troubleshooting.",
+        "fr": "Journalise chaque requête au portail (jamais le mot de passe). Pour le dépannage.",
+        "de": "Protokolliert jede Anfrage an das Portal (nie das Passwort). Zur Fehlersuche.",
+        "es": "Registra cada petición al portal (nunca la contraseña). Para diagnosticar."
+      },
+      "required": false,
+      "default": false
+    }
+  ],
+  "actions": [
+    {
+      "key": "sync_now",
+      "label": {
+        "en": "Sync now",
+        "fr": "Synchroniser maintenant",
+        "de": "Jetzt synchronisieren",
+        "es": "Sincronizar ahora"
+      },
+      "timeout_seconds": 120
+    }
+  ]
+}

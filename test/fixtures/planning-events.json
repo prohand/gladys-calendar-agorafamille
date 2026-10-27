@@ -1,0 +1,194 @@
+{
+  "DATA": {
+    "EVENTS": [
+      {
+        "ID_EVENT": 1481,
+        "DESCRIPTION": "Vacances Toussaint - Élémentaire Jules Ferry",
+        "FULL_DESCRIPTION": "Vacances Toussaint - Élémentaire Jules Ferry",
+        "START_DATE_TIME": "26/10/2026 08:00:00",
+        "END_DATE_TIME": "26/10/2026 18:00:00",
+        "IS_SELECTED": 0,
+        "IS_UNAVAILABLE": 0,
+        "AVAILABLE_SLOT": 0,
+        "ID_GROUP": 99,
+        "NAME_GROUP": "Accueil De Loisirs Vacances - Élémentaire",
+        "SUB_EVENT_DESCRIPTION": null,
+        "SUB_EVENT_FULL_DESCRIPTION": null,
+        "DAILY_ROULES_OBJ": {
+          "CAN_SUBSCRIPTION": 0,
+          "CAN_UNSUBSCRIPTION": 0,
+          "IS_MAJORED": 0,
+          "VACANCIES": -1,
+          "ID_MESSAGE": 1,
+          "INSERT_ABSENCE": 0
+        },
+        "SUB_EVENT_LIST": [
+          {
+            "ID_SUB_EVENT": -1,
+            "DESC_SUB_EVENT": null,
+            "PRICE": -1
+          },
+          {
+            "ID_SUB_EVENT": 1442,
+            "DESC_SUB_EVENT": "P-Vac Journée",
+            "PRICE": "13,1 "
+          }
+        ],
+        "ID_INSCRIPTION": 500001,
+        "ID_TARGET": "1001$0",
+        "ID_CALENDAR": 9937,
+        "IS_MAJORED": 0,
+        "IS_BASKET": 1,
+        "PRESENCE_TYPE": 0,
+        "PRESENCE_VALUE": null,
+        "ID_TYPE_TARGET": 0,
+        "HAS_ALERT": 0,
+        "ICON": null,
+        "CONGES_LIST": null,
+        "ACT_BLOCK_BY_CRITERIA": 0,
+        "ID_FREQ": null
+      },
+      {
+        "ID_EVENT": 1481,
+        "DESCRIPTION": "Vacances Toussaint - Élémentaire Jules Ferry",
+        "FULL_DESCRIPTION": "Vacances Toussaint - Élémentaire Jules Ferry",
+        "START_DATE_TIME": "28/10/2026 08:00:00",
+        "END_DATE_TIME": "28/10/2026 18:00:00",
+        "IS_SELECTED": 0,
+        "IS_UNAVAILABLE": 0,
+        "AVAILABLE_SLOT": 0,
+        "ID_GROUP": 99,
+        "NAME_GROUP": "Accueil De Loisirs Vacances - Élémentaire",
+        "SUB_EVENT_DESCRIPTION": null,
+        "SUB_EVENT_FULL_DESCRIPTION": null,
+        "DAILY_ROULES_OBJ": {
+          "CAN_SUBSCRIPTION": 0,
+          "CAN_UNSUBSCRIPTION": 0,
+          "IS_MAJORED": 0,
+          "VACANCIES": 7,
+          "ID_MESSAGE": 1,
+          "INSERT_ABSENCE": 0
+        },
+        "SUB_EVENT_LIST": [
+          {
+            "ID_SUB_EVENT": -1,
+            "DESC_SUB_EVENT": null,
+            "PRICE": -1
+          },
+          {
+            "ID_SUB_EVENT": 1442,
+            "DESC_SUB_EVENT": "P-Vac Journée",
+            "PRICE": "13,1 "
+          }
+        ],
+        "ID_INSCRIPTION": 500001,
+        "ID_TARGET": "1001$0",
+        "ID_CALENDAR": 9937,
+        "IS_MAJORED": 0,
+        "IS_BASKET": 1,
+        "PRESENCE_TYPE": 0,
+        "PRESENCE_VALUE": null,
+        "ID_TYPE_TARGET": 0,
+        "HAS_ALERT": 0,
+        "ICON": null,
+        "CONGES_LIST": null,
+        "ACT_BLOCK_BY_CRITERIA": 0,
+        "ID_FREQ": null
+      },
+      {
+        "ID_EVENT": 1467,
+        "DESCRIPTION": "Vacances Toussaint - Maternelle Jules Ferry",
+        "FULL_DESCRIPTION": "Vacances Toussaint - Maternelle Jules Ferry",
+        "START_DATE_TIME": "26/10/2026 08:00:00",
+        "END_DATE_TIME": "26/10/2026 18:00:00",
+        "IS_SELECTED": 0,
+        "IS_UNAVAILABLE": 0,
+        "AVAILABLE_SLOT": 0,
+        "ID_GROUP": 98,
+        "NAME_GROUP": "Accueil De Loisirs Vacances - Maternelle",
+        "SUB_EVENT_DESCRIPTION": null,
+        "SUB_EVENT_FULL_DESCRIPTION": null,
+        "DAILY_ROULES_OBJ": {
+          "CAN_SUBSCRIPTION": 0,
+          "CAN_UNSUBSCRIPTION": 0,
+          "IS_MAJORED": 0,
+          "VACANCIES": -1,
+          "ID_MESSAGE": 1,
+          "INSERT_ABSENCE": 0
+        },
+        "SUB_EVENT_LIST": [
+          {
+            "ID_SUB_EVENT": -1,
+            "DESC_SUB_EVENT": null,
+            "PRICE": -1
+          },
+          {
+            "ID_SUB_EVENT": 1442,
+            "DESC_SUB_EVENT": "P-Vac Journée",
+            "PRICE": "13,1 "
+          }
+        ],
+        "ID_INSCRIPTION": 500002,
+        "ID_TARGET": "1002$0",
+        "ID_CALENDAR": 9935,
+        "IS_MAJORED": 0,
+        "IS_BASKET": 1,
+        "PRESENCE_TYPE": 0,
+        "PRESENCE_VALUE": null,
+        "ID_TYPE_TARGET": 0,
+        "HAS_ALERT": 0,
+        "ICON": null,
+        "CONGES_LIST": null,
+        "ACT_BLOCK_BY_CRITERIA": 0,
+        "ID_FREQ": null
+      },
+      {
+        "ID_EVENT": 1467,
+        "DESCRIPTION": "Vacances Toussaint - Maternelle Jules Ferry",
+        "FULL_DESCRIPTION": "Vacances Toussaint - Maternelle Jules Ferry",
+        "START_DATE_TIME": "27/10/2026 08:00:00",
+        "END_DATE_TIME": "27/10/2026 18:00:00",
+        "IS_SELECTED": 1,
+        "IS_UNAVAILABLE": 0,
+        "AVAILABLE_SLOT": 0,
+        "ID_GROUP": 98,
+        "NAME_GROUP": "Accueil De Loisirs Vacances - Maternelle",
+        "SUB_EVENT_DESCRIPTION": null,
+        "SUB_EVENT_FULL_DESCRIPTION": null,
+        "DAILY_ROULES_OBJ": {
+          "CAN_SUBSCRIPTION": 0,
+          "CAN_UNSUBSCRIPTION": 0,
+          "IS_MAJORED": 0,
+          "VACANCIES": -1,
+          "ID_MESSAGE": 1,
+          "INSERT_ABSENCE": 0
+        },
+        "SUB_EVENT_LIST": [
+          {
+            "ID_SUB_EVENT": -1,
+            "DESC_SUB_EVENT": null,
+            "PRICE": -1
+          },
+          {
+            "ID_SUB_EVENT": 1442,
+            "DESC_SUB_EVENT": "P-Vac Journée",
+            "PRICE": "13,1 "
+          }
+        ],
+        "ID_INSCRIPTION": 500002,
+        "ID_TARGET": "1002$0",
+        "ID_CALENDAR": 9935,
+        "IS_MAJORED": 0,
+        "IS_BASKET": 1,
+        "PRESENCE_TYPE": 0,
+        "PRESENCE_VALUE": null,
+        "ID_TYPE_TARGET": 0,
+        "HAS_ALERT": 0,
+        "ICON": null,
+        "CONGES_LIST": null,
+        "ACT_BLOCK_BY_CRITERIA": 0,
+        "ID_FREQ": null
+      }
+    ]
+  }
+}
