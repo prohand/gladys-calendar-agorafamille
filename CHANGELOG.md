@@ -10,6 +10,8 @@ Release.
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-27
+
 ### Added
 
 - Agora Famille calendar integration for Gladys 5.3+ (type `calendar`), started from the
@@ -31,4 +33,5 @@ Release.
 - CI (Prettier, ESLint, tests on Node 22 and 24, store checks, Docker build), UI-driven
   Release, multi-arch build, GitHub Releases and Dependabot.
 
-[Unreleased]: https://github.com/prohand/gladys-calendar-agorafamille/commits/main
+[Unreleased]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/prohand/gladys-calendar-agorafamille/releases/tag/v1.0.1
