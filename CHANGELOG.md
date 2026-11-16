@@ -10,6 +10,8 @@ Release.
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-11-16
+
 - Update `@gladysassistant/integration-sdk` to 0.16.1 (security update).
 
 ## [1.0.3] - 2026-11-16
@@ -51,7 +53,8 @@ Release.
 - CI (Prettier, ESLint, tests on Node 22 and 24, store checks, Docker build), UI-driven
   Release, multi-arch build, GitHub Releases and Dependabot.
 
-[Unreleased]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/prohand/gladys-calendar-agorafamille/releases/tag/v1.0.1
