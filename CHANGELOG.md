@@ -10,6 +10,10 @@ Release.
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-11-16
+
+- Maintenance release, no functional change.
+
 ## [1.0.2] - 2026-10-27
 
 ### Added
@@ -45,6 +49,7 @@ Release.
 - CI (Prettier, ESLint, tests on Node 22 and 24, store checks, Docker build), UI-driven
   Release, multi-arch build, GitHub Releases and Dependabot.
 
-[Unreleased]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/prohand/gladys-calendar-agorafamille/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/prohand/gladys-calendar-agorafamille/releases/tag/v1.0.1
